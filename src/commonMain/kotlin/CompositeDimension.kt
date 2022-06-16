@@ -1,4 +1,5 @@
 @file:JvmSynthetic
+@file:Suppress("unused")
 package com.batterystaple.kmeasure
 
 import kotlin.jvm.JvmName
@@ -51,45 +52,45 @@ inline val Scalar.value get() = siValue
 @kotlin.internal.HidesMembers
 inline val Scalar.siValue get() = siValue
 
-sealed interface BaseLengthDimension<L : BaseLengthDimension<L>>
-object LengthN6 : BaseLengthDimension<LengthN6>
-object LengthN5 : BaseLengthDimension<LengthN5>
-object LengthN4 : BaseLengthDimension<LengthN4>
-object LengthN3 : BaseLengthDimension<LengthN3>
-object LengthN2 : BaseLengthDimension<LengthN2>
-object LengthN1 : BaseLengthDimension<LengthN1>
-object Length0 : BaseLengthDimension<Length0>
-object Length1 : BaseLengthDimension<Length1>
-object Length2 : BaseLengthDimension<Length2>
-object Length3 : BaseLengthDimension<Length3>
-object Length4 : BaseLengthDimension<Length4>
-object Length5 : BaseLengthDimension<Length5>
-object Length6 : BaseLengthDimension<Length6>
+sealed interface BaseLengthDimension
+object LengthN6 : BaseLengthDimension
+object LengthN5 : BaseLengthDimension
+object LengthN4 : BaseLengthDimension
+object LengthN3 : BaseLengthDimension
+object LengthN2 : BaseLengthDimension
+object LengthN1 : BaseLengthDimension
+object Length0 : BaseLengthDimension
+object Length1 : BaseLengthDimension
+object Length2 : BaseLengthDimension
+object Length3 : BaseLengthDimension
+object Length4 : BaseLengthDimension
+object Length5 : BaseLengthDimension
+object Length6 : BaseLengthDimension
 
-sealed interface BaseTimeDimension<T : BaseTimeDimension<T>>
-object TimeN6 : BaseTimeDimension<TimeN6>
-object TimeN5 : BaseTimeDimension<TimeN5>
-object TimeN4 : BaseTimeDimension<TimeN4>
-object TimeN3 : BaseTimeDimension<TimeN3>
-object TimeN2 : BaseTimeDimension<TimeN2>
-object TimeN1 : BaseTimeDimension<TimeN1>
-object Time0 : BaseTimeDimension<Time0>
-object Time1 : BaseTimeDimension<Time1>
-object Time2 : BaseTimeDimension<Time2>
-object Time3 : BaseTimeDimension<Time3>
-object Time4 : BaseTimeDimension<Time4>
-object Time5 : BaseTimeDimension<Time5>
-object Time6 : BaseTimeDimension<Time6>
+sealed interface BaseTimeDimension
+object TimeN6 : BaseTimeDimension
+object TimeN5 : BaseTimeDimension
+object TimeN4 : BaseTimeDimension
+object TimeN3 : BaseTimeDimension
+object TimeN2 : BaseTimeDimension
+object TimeN1 : BaseTimeDimension
+object Time0 : BaseTimeDimension
+object Time1 : BaseTimeDimension
+object Time2 : BaseTimeDimension
+object Time3 : BaseTimeDimension
+object Time4 : BaseTimeDimension
+object Time5 : BaseTimeDimension
+object Time6 : BaseTimeDimension
 
-sealed interface BaseMassDimension<M : BaseMassDimension<M>>
-object MassN2 : BaseMassDimension<MassN2>
-object MassN1 : BaseMassDimension<MassN1>
-object Mass0 : BaseMassDimension<Mass0>
-object Mass1 : BaseMassDimension<Mass1>
-object Mass2 : BaseMassDimension<Mass2>
+sealed interface BaseMassDimension
+object MassN2 : BaseMassDimension
+object MassN1 : BaseMassDimension
+object Mass0 : BaseMassDimension
+object Mass1 : BaseMassDimension
+object Mass2 : BaseMassDimension
 
 typealias Dimension = CompositeDimension<*, *, *>
-class CompositeDimension<M : BaseMassDimension<M>, L : BaseLengthDimension<L>, T : BaseTimeDimension<T>> private constructor()
+class CompositeDimension<M : BaseMassDimension, L : BaseLengthDimension, T : BaseTimeDimension> private constructor()
 
 typealias Scalar = DimensionedQuantity<ScalarDimension>
 typealias Time = DimensionedQuantity<TimeDimension>

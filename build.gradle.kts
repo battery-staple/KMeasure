@@ -1,11 +1,11 @@
 plugins {
-    kotlin("multiplatform") version "1.6.21"
+    kotlin("multiplatform") version "1.7.0"
     `maven-publish`
     signing
 }
 
 group = "io.github.battery-staple"
-version = "1.0.3"
+version = "1.0.4"
 
 repositories {
     mavenCentral()
