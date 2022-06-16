@@ -1,6 +1,7 @@
 @file:Suppress("unused")
-package com.batterystaple.kmeasure
+package com.batterystaple.kmeasure.units
 
+import com.batterystaple.kmeasure.quantities.*
 import kotlin.math.PI
 
 // Angles
