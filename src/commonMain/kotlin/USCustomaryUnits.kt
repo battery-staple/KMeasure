@@ -1,3 +1,4 @@
+@file:Suppress("unused")
 package com.batterystaple.kmeasure
 
 // Mass
@@ -44,85 +45,85 @@ val PoundForce by lazy { Force(NEWTONS_PER_POUND_FORCE) }
 val Horsepower by lazy { Power(33_000.0 * METERS_PER_FOOT * NEWTONS_PER_POUND_FORCE / SECONDS_PER_MINUTE) }
 
 
-inline val Int.ounces: DimensionedQuantity<MassDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Ounces)
-inline val Int.pounds: DimensionedQuantity<MassDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Pounds)
-inline val Int.tons: DimensionedQuantity<MassDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Tons)
-inline val Int.longTons: DimensionedQuantity<MassDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(LongTons)
+inline val Int.ounces: Mass @kotlin.internal.InlineOnly inline get() = ofUnit(Ounces)
+inline val Int.pounds: Mass @kotlin.internal.InlineOnly inline get() = ofUnit(Pounds)
+inline val Int.tons: Mass @kotlin.internal.InlineOnly inline get() = ofUnit(Tons)
+inline val Int.longTons: Mass @kotlin.internal.InlineOnly inline get() = ofUnit(LongTons)
 
-inline val Int.mils: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Mils)
-inline val Int.thous: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Thous)
-inline val Int.inches: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Inches)
-inline val Int.feet: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Feet)
-inline val Int.surveyFeet: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(SurveyFeet)
-inline val Int.yards: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Yards)
-inline val Int.miles: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Miles)
+inline val Int.mils: Length @kotlin.internal.InlineOnly inline get() = ofUnit(Mils)
+inline val Int.thous: Length @kotlin.internal.InlineOnly inline get() = ofUnit(Thous)
+inline val Int.inches: Length @kotlin.internal.InlineOnly inline get() = ofUnit(Inches)
+inline val Int.feet: Length @kotlin.internal.InlineOnly inline get() = ofUnit(Feet)
+inline val Int.surveyFeet: Length @kotlin.internal.InlineOnly inline get() = ofUnit(SurveyFeet)
+inline val Int.yards: Length @kotlin.internal.InlineOnly inline get() = ofUnit(Yards)
+inline val Int.miles: Length @kotlin.internal.InlineOnly inline get() = ofUnit(Miles)
 
-inline val Int.acres: DimensionedQuantity<AreaDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Acres)
+inline val Int.acres: Area @kotlin.internal.InlineOnly inline get() = ofUnit(Acres)
 
-inline val Int.teaspoons: DimensionedQuantity<VolumeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Teaspoons)
-inline val Int.tablespoons: DimensionedQuantity<VolumeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Tablespoons)
-inline val Int.fluidOunces: DimensionedQuantity<VolumeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(FluidOunces)
-inline val Int.cups: DimensionedQuantity<VolumeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Cups)
-inline val Int.pints: DimensionedQuantity<VolumeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Pints)
-inline val Int.quarts: DimensionedQuantity<VolumeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Quarts)
-inline val Int.gallons: DimensionedQuantity<VolumeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Gallons)
+inline val Int.teaspoons: Volume @kotlin.internal.InlineOnly inline get() = ofUnit(Teaspoons)
+inline val Int.tablespoons: Volume @kotlin.internal.InlineOnly inline get() = ofUnit(Tablespoons)
+inline val Int.fluidOunces: Volume @kotlin.internal.InlineOnly inline get() = ofUnit(FluidOunces)
+inline val Int.cups: Volume @kotlin.internal.InlineOnly inline get() = ofUnit(Cups)
+inline val Int.pints: Volume @kotlin.internal.InlineOnly inline get() = ofUnit(Pints)
+inline val Int.quarts: Volume @kotlin.internal.InlineOnly inline get() = ofUnit(Quarts)
+inline val Int.gallons: Volume @kotlin.internal.InlineOnly inline get() = ofUnit(Gallons)
 
-inline val Int.poundForce: DimensionedQuantity<ForceDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(PoundForce)
+inline val Int.poundForce: Force @kotlin.internal.InlineOnly inline get() = ofUnit(PoundForce)
 
-inline val Int.horsepower: DimensionedQuantity<PowerDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Horsepower)
-
-
-inline val Long.ounces: DimensionedQuantity<MassDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Ounces)
-inline val Long.pounds: DimensionedQuantity<MassDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Pounds)
-inline val Long.tons: DimensionedQuantity<MassDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Tons)
-inline val Long.longTons: DimensionedQuantity<MassDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(LongTons)
-
-inline val Long.mils: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Mils)
-inline val Long.thous: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Thous)
-inline val Long.inches: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Inches)
-inline val Long.feet: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Feet)
-inline val Long.surveyFeet: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(SurveyFeet)
-inline val Long.yards: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Yards)
-inline val Long.miles: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Miles)
-
-inline val Long.acres: DimensionedQuantity<AreaDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Acres)
-
-inline val Long.teaspoons: DimensionedQuantity<VolumeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Teaspoons)
-inline val Long.tablespoons: DimensionedQuantity<VolumeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Tablespoons)
-inline val Long.fluidOunces: DimensionedQuantity<VolumeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(FluidOunces)
-inline val Long.cups: DimensionedQuantity<VolumeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Cups)
-inline val Long.pints: DimensionedQuantity<VolumeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Pints)
-inline val Long.quarts: DimensionedQuantity<VolumeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Quarts)
-inline val Long.gallons: DimensionedQuantity<VolumeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Gallons)
-
-inline val Long.poundForce: DimensionedQuantity<ForceDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(PoundForce)
-
-inline val Long.horsepower: DimensionedQuantity<PowerDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Horsepower)
+inline val Int.horsepower: Power @kotlin.internal.InlineOnly inline get() = ofUnit(Horsepower)
 
 
-inline val Double.ounces: DimensionedQuantity<MassDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Ounces)
-inline val Double.pounds: DimensionedQuantity<MassDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Pounds)
-inline val Double.tons: DimensionedQuantity<MassDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Tons)
-inline val Double.longTons: DimensionedQuantity<MassDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(LongTons)
+inline val Long.ounces: Mass @kotlin.internal.InlineOnly inline get() = ofUnit(Ounces)
+inline val Long.pounds: Mass @kotlin.internal.InlineOnly inline get() = ofUnit(Pounds)
+inline val Long.tons: Mass @kotlin.internal.InlineOnly inline get() = ofUnit(Tons)
+inline val Long.longTons: Mass @kotlin.internal.InlineOnly inline get() = ofUnit(LongTons)
 
-inline val Double.mils: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Mils)
-inline val Double.thous: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Thous)
-inline val Double.inches: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Inches)
-inline val Double.feet: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Feet)
-inline val Double.surveyFeet: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(SurveyFeet)
-inline val Double.yards: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Yards)
-inline val Double.miles: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Miles)
+inline val Long.mils: Length @kotlin.internal.InlineOnly inline get() = ofUnit(Mils)
+inline val Long.thous: Length @kotlin.internal.InlineOnly inline get() = ofUnit(Thous)
+inline val Long.inches: Length @kotlin.internal.InlineOnly inline get() = ofUnit(Inches)
+inline val Long.feet: Length @kotlin.internal.InlineOnly inline get() = ofUnit(Feet)
+inline val Long.surveyFeet: Length @kotlin.internal.InlineOnly inline get() = ofUnit(SurveyFeet)
+inline val Long.yards: Length @kotlin.internal.InlineOnly inline get() = ofUnit(Yards)
+inline val Long.miles: Length @kotlin.internal.InlineOnly inline get() = ofUnit(Miles)
 
-inline val Double.acres: DimensionedQuantity<AreaDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Acres)
+inline val Long.acres: Area @kotlin.internal.InlineOnly inline get() = ofUnit(Acres)
 
-inline val Double.teaspoons: DimensionedQuantity<VolumeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Teaspoons)
-inline val Double.tablespoons: DimensionedQuantity<VolumeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Tablespoons)
-inline val Double.fluidOunces: DimensionedQuantity<VolumeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(FluidOunces)
-inline val Double.cups: DimensionedQuantity<VolumeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Cups)
-inline val Double.pints: DimensionedQuantity<VolumeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Pints)
-inline val Double.quarts: DimensionedQuantity<VolumeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Quarts)
-inline val Double.gallons: DimensionedQuantity<VolumeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Gallons)
+inline val Long.teaspoons: Volume @kotlin.internal.InlineOnly inline get() = ofUnit(Teaspoons)
+inline val Long.tablespoons: Volume @kotlin.internal.InlineOnly inline get() = ofUnit(Tablespoons)
+inline val Long.fluidOunces: Volume @kotlin.internal.InlineOnly inline get() = ofUnit(FluidOunces)
+inline val Long.cups: Volume @kotlin.internal.InlineOnly inline get() = ofUnit(Cups)
+inline val Long.pints: Volume @kotlin.internal.InlineOnly inline get() = ofUnit(Pints)
+inline val Long.quarts: Volume @kotlin.internal.InlineOnly inline get() = ofUnit(Quarts)
+inline val Long.gallons: Volume @kotlin.internal.InlineOnly inline get() = ofUnit(Gallons)
 
-inline val Double.poundForce: DimensionedQuantity<ForceDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(PoundForce)
+inline val Long.poundForce: Force @kotlin.internal.InlineOnly inline get() = ofUnit(PoundForce)
 
-inline val Double.horsepower: DimensionedQuantity<PowerDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Horsepower)
+inline val Long.horsepower: Power @kotlin.internal.InlineOnly inline get() = ofUnit(Horsepower)
+
+
+inline val Double.ounces: Mass @kotlin.internal.InlineOnly inline get() = ofUnit(Ounces)
+inline val Double.pounds: Mass @kotlin.internal.InlineOnly inline get() = ofUnit(Pounds)
+inline val Double.tons: Mass @kotlin.internal.InlineOnly inline get() = ofUnit(Tons)
+inline val Double.longTons: Mass @kotlin.internal.InlineOnly inline get() = ofUnit(LongTons)
+
+inline val Double.mils: Length @kotlin.internal.InlineOnly inline get() = ofUnit(Mils)
+inline val Double.thous: Length @kotlin.internal.InlineOnly inline get() = ofUnit(Thous)
+inline val Double.inches: Length @kotlin.internal.InlineOnly inline get() = ofUnit(Inches)
+inline val Double.feet: Length @kotlin.internal.InlineOnly inline get() = ofUnit(Feet)
+inline val Double.surveyFeet: Length @kotlin.internal.InlineOnly inline get() = ofUnit(SurveyFeet)
+inline val Double.yards: Length @kotlin.internal.InlineOnly inline get() = ofUnit(Yards)
+inline val Double.miles: Length @kotlin.internal.InlineOnly inline get() = ofUnit(Miles)
+
+inline val Double.acres: Area @kotlin.internal.InlineOnly inline get() = ofUnit(Acres)
+
+inline val Double.teaspoons: Volume @kotlin.internal.InlineOnly inline get() = ofUnit(Teaspoons)
+inline val Double.tablespoons: Volume @kotlin.internal.InlineOnly inline get() = ofUnit(Tablespoons)
+inline val Double.fluidOunces: Volume @kotlin.internal.InlineOnly inline get() = ofUnit(FluidOunces)
+inline val Double.cups: Volume @kotlin.internal.InlineOnly inline get() = ofUnit(Cups)
+inline val Double.pints: Volume @kotlin.internal.InlineOnly inline get() = ofUnit(Pints)
+inline val Double.quarts: Volume @kotlin.internal.InlineOnly inline get() = ofUnit(Quarts)
+inline val Double.gallons: Volume @kotlin.internal.InlineOnly inline get() = ofUnit(Gallons)
+
+inline val Double.poundForce: Force @kotlin.internal.InlineOnly inline get() = ofUnit(PoundForce)
+
+inline val Double.horsepower: Power @kotlin.internal.InlineOnly inline get() = ofUnit(Horsepower)

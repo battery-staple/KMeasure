@@ -1,3 +1,4 @@
+@file:Suppress("unused")
 package com.batterystaple.kmeasure
 
 import kotlin.math.PI
@@ -33,25 +34,25 @@ val Liters by lazy { Volume(0.001) }
 // Energy
 val ElectronVolt by lazy { Energy(1.602176634E-19) }
 
-inline val Int.degrees: DimensionedQuantity<AngleDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Degrees)
-inline val Int.revolutions: DimensionedQuantity<AngleDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Revolutions)
-inline val Int.rotations: DimensionedQuantity<AngleDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Rotations)
+inline val Int.degrees: Angle @kotlin.internal.InlineOnly inline get() = ofUnit(Degrees)
+inline val Int.revolutions: Angle @kotlin.internal.InlineOnly inline get() = ofUnit(Revolutions)
+inline val Int.rotations: Angle @kotlin.internal.InlineOnly inline get() = ofUnit(Rotations)
 
-inline val Int.minutes: DimensionedQuantity<TimeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Minutes)
-inline val Int.hours: DimensionedQuantity<TimeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Hours)
-inline val Int.days: DimensionedQuantity<TimeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Days)
-inline val Int.weeks: DimensionedQuantity<TimeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Weeks)
-inline val Int.years: DimensionedQuantity<TimeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Years)
-inline val Int.decades: DimensionedQuantity<TimeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Decades)
+inline val Int.minutes: Time @kotlin.internal.InlineOnly inline get() = ofUnit(Minutes)
+inline val Int.hours: Time @kotlin.internal.InlineOnly inline get() = ofUnit(Hours)
+inline val Int.days: Time @kotlin.internal.InlineOnly inline get() = ofUnit(Days)
+inline val Int.weeks: Time @kotlin.internal.InlineOnly inline get() = ofUnit(Weeks)
+inline val Int.years: Time @kotlin.internal.InlineOnly inline get() = ofUnit(Years)
+inline val Int.decades: Time @kotlin.internal.InlineOnly inline get() = ofUnit(Decades)
 
 
-inline val Double.degrees: DimensionedQuantity<AngleDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Degrees)
-inline val Double.revolutions: DimensionedQuantity<AngleDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Revolutions)
-inline val Double.rotations: DimensionedQuantity<AngleDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Rotations)
+inline val Double.degrees: Angle @kotlin.internal.InlineOnly inline get() = ofUnit(Degrees)
+inline val Double.revolutions: Angle @kotlin.internal.InlineOnly inline get() = ofUnit(Revolutions)
+inline val Double.rotations: Angle @kotlin.internal.InlineOnly inline get() = ofUnit(Rotations)
 
-inline val Double.minutes: DimensionedQuantity<TimeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Minutes)
-inline val Double.hours: DimensionedQuantity<TimeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Hours)
-inline val Double.days: DimensionedQuantity<TimeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Days)
-inline val Double.weeks: DimensionedQuantity<TimeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Weeks)
-inline val Double.years: DimensionedQuantity<TimeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Years)
-inline val Double.decades: DimensionedQuantity<TimeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Decades)
+inline val Double.minutes: Time @kotlin.internal.InlineOnly inline get() = ofUnit(Minutes)
+inline val Double.hours: Time @kotlin.internal.InlineOnly inline get() = ofUnit(Hours)
+inline val Double.days: Time @kotlin.internal.InlineOnly inline get() = ofUnit(Days)
+inline val Double.weeks: Time @kotlin.internal.InlineOnly inline get() = ofUnit(Weeks)
+inline val Double.years: Time @kotlin.internal.InlineOnly inline get() = ofUnit(Years)
+inline val Double.decades: Time @kotlin.internal.InlineOnly inline get() = ofUnit(Decades)

@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.batterystaple.kmeasure
 
 val Radians by lazy { Angle(1.0) }
@@ -17,46 +19,23 @@ val Pascals by lazy { Pressure(1.0) }
 val Joules by lazy { Energy(1.0) }
 
 val Watts by lazy { Power(1.0) }
-/*
-MassLength
-Viscosity
-Action
-InverseTimeSquared
-AreaPerTime
-MassFlowRate
-SpecificEnergy
-MassPerSquareTime
-MassArea
-InverseLength
-InverseArea
-InverseVelocity
-InverseAcceleration
-InverseMass
-InverseMomentum
-InverseForce
-InversePressure
-InverseEnergy
-TimeSquared
-TimePerArea
-InverseMassFlowRate
- */
 
-inline val Int.seconds: DimensionedQuantity<TimeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Seconds)
-inline val Int.meters: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Meters)
-inline val Int.grams: DimensionedQuantity<MassDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Grams)
+inline val Int.seconds: Time @kotlin.internal.InlineOnly inline get() = ofUnit(Seconds)
+inline val Int.meters: Length @kotlin.internal.InlineOnly inline get() = ofUnit(Meters)
+inline val Int.grams: Mass @kotlin.internal.InlineOnly inline get() = ofUnit(Grams)
 
-inline val Int.hertz: DimensionedQuantity<FrequencyDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Hertz)
+inline val Int.hertz: Frequency @kotlin.internal.InlineOnly inline get() = ofUnit(Hertz)
 
 
-inline val Long.seconds: DimensionedQuantity<TimeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Seconds)
-inline val Long.meters: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Meters)
-inline val Long.grams: DimensionedQuantity<MassDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Grams)
+inline val Long.seconds: Time @kotlin.internal.InlineOnly inline get() = ofUnit(Seconds)
+inline val Long.meters: Length @kotlin.internal.InlineOnly inline get() = ofUnit(Meters)
+inline val Long.grams: Mass @kotlin.internal.InlineOnly inline get() = ofUnit(Grams)
 
-inline val Long.hertz: DimensionedQuantity<FrequencyDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Hertz)
+inline val Long.hertz: Frequency @kotlin.internal.InlineOnly inline get() = ofUnit(Hertz)
 
 
-inline val Double.seconds: DimensionedQuantity<TimeDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Seconds)
-inline val Double.meters: DimensionedQuantity<LengthDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Meters)
-inline val Double.grams: DimensionedQuantity<MassDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Grams)
+inline val Double.seconds: Time @kotlin.internal.InlineOnly inline get() = ofUnit(Seconds)
+inline val Double.meters: Length @kotlin.internal.InlineOnly inline get() = ofUnit(Meters)
+inline val Double.grams: Mass @kotlin.internal.InlineOnly inline get() = ofUnit(Grams)
 
-inline val Double.hertz: DimensionedQuantity<FrequencyDimension> @kotlin.internal.InlineOnly inline get() = ofUnit(Hertz)
+inline val Double.hertz: Frequency @kotlin.internal.InlineOnly inline get() = ofUnit(Hertz)
