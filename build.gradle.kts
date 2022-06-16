@@ -11,7 +11,7 @@ repositories {
     mavenCentral()
 }
 
-val environment = System.getenv()
+val environment: MutableMap<String, String> = System.getenv() ?: error("Could not get environment")
 
 afterEvaluate {
     extensions.findByType<PublishingExtension>()?.apply {
@@ -67,8 +67,8 @@ afterEvaluate {
 
     extensions.findByType<SigningExtension>()?.apply {
         val publishing = extensions.findByType<PublishingExtension>() ?: return@apply
-        val key = environment["signingKey"]?.toString()?.replace("\\n", "\n")
-        val password = environment["signingPassword"]?.toString()
+        val key = environment["signingKey"]?.replace("\\n", "\n")
+        val password = environment["signingPassword"]
 
         useInMemoryPgpKeys(key, password)
         sign(publishing.publications)
@@ -84,7 +84,6 @@ kotlin {
         compilations.all {
             kotlinOptions {
                 jvmTarget = "1.8"
-                freeCompilerArgs += "-Xallow-kotlin-package"
             }
         }
         testRuns["test"].executionTask.configure {
@@ -100,6 +99,7 @@ kotlin {
     }
     val hostOs = System.getProperty("os.name")
     val isMingwX64 = hostOs.startsWith("Windows")
+    @Suppress("UNUSED_VARIABLE")
     val nativeTarget = when {
         hostOs == "Mac OS X" -> macosX64("native")
         hostOs == "Linux" -> linuxX64("native")
@@ -107,6 +107,7 @@ kotlin {
         else -> throw GradleException("Host OS is not supported in Kotlin/Native.")
     }
 
+    @Suppress("UNUSED_VARIABLE")
     sourceSets {
         val commonMain by getting
         val commonTest by getting {
@@ -124,14 +125,12 @@ kotlin {
 
     targets.all {
         compilations.all {
+            @Suppress("SuspiciousCollectionReassignment")
             kotlinOptions {
                 freeCompilerArgs += "-Xallow-kotlin-package"
             }
         }
     }
-
-//    val publicationsFromMainHost =
-//        listOf(jvm(), js()).map { it.name } + "kotlinMultiplatform"
 }
 
 val emptyJavadocJar by tasks.registering(Jar::class) {
