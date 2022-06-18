@@ -22,9 +22,13 @@ val joules: Energy by lazy { Energy(1.0) }
 
 val watts: Power by lazy { Power(1.0) }
 
-inline val Int.seconds: Time @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.seconds)
-inline val Int.meters: Length @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.meters)
+inline val Int.radians: Angle @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.radians)
+
 inline val Int.grams: Mass @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.grams)
+
+inline val Int.meters: Length @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.meters)
+
+inline val Int.seconds: Time @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.seconds)
 
 inline val Int.hertz: Frequency @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.hertz)
 
@@ -37,9 +41,13 @@ inline val Int.joules: Energy @InlineOnly inline get() = ofUnit(com.batterystapl
 inline val Int.watts: Power @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.watts)
 
 
-inline val Long.seconds: Time @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.seconds)
-inline val Long.meters: Length @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.meters)
+inline val Long.radians: Angle @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.radians)
+
 inline val Long.grams: Mass @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.grams)
+
+inline val Long.meters: Length @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.meters)
+
+inline val Long.seconds: Time @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.seconds)
 
 inline val Long.hertz: Frequency @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.hertz)
 
@@ -52,9 +60,13 @@ inline val Long.joules: Energy @InlineOnly inline get() = ofUnit(com.batterystap
 inline val Long.watts: Power @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.watts)
 
 
-inline val Double.seconds: Time @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.seconds)
-inline val Double.meters: Length @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.meters)
+inline val Double.radians: Angle @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.radians)
+
 inline val Double.grams: Mass @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.grams)
+
+inline val Double.meters: Length @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.meters)
+
+inline val Double.seconds: Time @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.seconds)
 
 inline val Double.hertz: Frequency @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.hertz)
 

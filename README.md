@@ -16,12 +16,12 @@ val distance: Distance = 1.seconds // Compile Error! (Type mismatch: inferred ty
 ### Unit conversion (automatic and explicit):
 ```kotlin
 1.hours + 30.minutes == 90.minutes // true
-val secondsInTwoMins = 2.minutes.inUnit(Seconds) // 120.0
-val degreesPerRadian = 1.radians.inUnit(Degrees)
+val secondsInTwoMins = 2.minutes.inUnit(seconds) // 120.0
+val degreesPerRadian = 1.radians.inUnit(degrees) // 57.29577951308232
 ```
 ### Typesafe multiplication and division:
 ```kotlin
-val velocity: Velocity = 3.miles / 1.hours // (same as 3.ofUnit(Miles/Hours))
+val velocity: Velocity = 3.miles / 1.hours // (same as 3.ofUnit(miles/hours))
 val work: Energy = 200.grams * velocity / 2.seconds * 10.feet
 val volume: Volume = PI * (2.centi.meters * 2.centi.meters) * 1.deci.meters
 ```
@@ -160,8 +160,8 @@ mechanical units, so issues arising from this are likely to be rare. Certain ver
 may run into errors, but may be fixed with rearrangement through parenthesis.
 
 ### Scalar/Double Nonequivalence
-Semantically, `Scalar(1.0)` and `1.0` represent the same dimensionless value of 1.0. 
+Semantically, `Scalar(1.0)` and `1.0` represent the same dimensionless value of 1.0.
 In typical usage, it is recommended to use `Double`s to represent dimensionless values,
-but it is sometimes necessary to use `Scalar`s, such as when a type is needed to implement 
-the `Quantity<D>` interface. This may occur with classes or functions that take 
+but it is sometimes necessary to use `Scalar`s, such as when a type is needed to implement
+the `Quantity<D>` interface. This may occur with classes or functions that take
 an arbitrary unit as a generic type parameter.
