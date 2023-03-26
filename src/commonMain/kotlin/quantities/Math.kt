@@ -2,7 +2,6 @@
 package com.batterystaple.kmeasure.quantities
 
 import com.batterystaple.kmeasure.dimensions.AnyDimension
-import com.batterystaple.kmeasure.interop.QuantityNumber
 import com.batterystaple.kmeasure.interop.transformWithSIValue
 import com.batterystaple.kmeasure.units.radians
 import kotlin.math.*

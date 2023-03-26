@@ -2,7 +2,6 @@
 package com.batterystaple.kmeasure.quantities
 
 import com.batterystaple.kmeasure.dimensions.AnyDimension
-import com.batterystaple.kmeasure.interop.QuantityNumber
 import kotlin.internal.InlineOnly
 
 inline val Scalar.value get() = siValue
