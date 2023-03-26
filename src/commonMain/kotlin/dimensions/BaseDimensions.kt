@@ -17,6 +17,8 @@ sealed interface Length5 : BaseLengthDimension
 sealed interface Length6 : BaseLengthDimension
 
 sealed interface BaseTimeDimension
+sealed interface TimeN8 : BaseTimeDimension
+sealed interface TimeN7 : BaseTimeDimension
 sealed interface TimeN6 : BaseTimeDimension
 sealed interface TimeN5 : BaseTimeDimension
 sealed interface TimeN4 : BaseTimeDimension
@@ -30,6 +32,8 @@ sealed interface Time3 : BaseTimeDimension
 sealed interface Time4 : BaseTimeDimension
 sealed interface Time5 : BaseTimeDimension
 sealed interface Time6 : BaseTimeDimension
+sealed interface Time7 : BaseTimeDimension
+sealed interface Time8 : BaseTimeDimension
 
 sealed interface BaseMassDimension
 sealed interface MassN2 : BaseMassDimension
@@ -37,3 +41,14 @@ sealed interface MassN1 : BaseMassDimension
 sealed interface Mass0 : BaseMassDimension
 sealed interface Mass1 : BaseMassDimension
 sealed interface Mass2 : BaseMassDimension
+
+sealed interface BaseCurrentDimension
+sealed interface CurrentN4 : BaseCurrentDimension
+sealed interface CurrentN3 : BaseCurrentDimension
+sealed interface CurrentN2 : BaseCurrentDimension
+sealed interface CurrentN1 : BaseCurrentDimension
+sealed interface Current0 : BaseCurrentDimension
+sealed interface Current1 : BaseCurrentDimension
+sealed interface Current2 : BaseCurrentDimension
+sealed interface Current3 : BaseCurrentDimension
+sealed interface Current4 : BaseCurrentDimension
