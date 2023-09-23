@@ -152,7 +152,7 @@ one for multiplication and one for division, the number of multiplication/divisi
 $2(d-1)!$ where $d$ is the number of dimensions. Since the number of dimensions is equal to
 $m \times l \times t$, where $m$, $l$, and $t$ are the number of mass, length, and time dimensions, respectively,
 the required number of multiplication/division functions is $2(mlt-1)!$ (or, more clearly,
-$ O((mlt)!) $). As is evident by the factorial term, adding more dimensions therefore significantly increases
+$O((mlt)!)$ ). As is evident by the factorial term, adding more dimensions therefore significantly increases
 the number of functions needing to be defined, slowing down things like intellisense and compilation.
 
 Thus, only certain dimensions are supported. Those that are supported were chosen to include all commonly-used
