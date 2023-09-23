@@ -80,8 +80,8 @@ force, for example, is $M \times L \times T^{-2}$.
 
 (See [here](https://en.wikipedia.org/wiki/Dimensional_analysis) for a more complete explanation of dimensions.)
 
-The vast majority of useful units can be represented with only the first three,
-so KMeasure only supports combinations of mass, length, and time for now.
+The vast majority of useful units can be represented with only the first four,
+so KMeasure only supports combinations of mass, length, time, and current for now.
 
 ### `Dimension` Declarations
 Thus, `Dimension` takes three type parameters:
