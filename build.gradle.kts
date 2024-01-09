@@ -1,7 +1,14 @@
+
+import kotlinx.benchmark.gradle.JvmBenchmarkTarget
+import org.jetbrains.kotlin.konan.target.HostManager
+import org.jetbrains.kotlin.konan.target.KonanTarget
+
 plugins {
-    kotlin("multiplatform") version "1.7.0"
+    kotlin("multiplatform") version "1.9.10"
     `maven-publish`
     signing
+    id("org.jetbrains.kotlinx.benchmark") version "0.4.9"
+    id("org.jetbrains.kotlin.plugin.allopen") version "1.9.10"
 }
 
 group = "io.github.battery-staple"
@@ -81,33 +88,37 @@ afterEvaluate {
 
 kotlin {
     jvm {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "1.8"
+        compilations {
+            create("benchmark") { associateWith(compilations["main"]) }
+            all {
+                kotlinOptions {
+                    jvmTarget = "1.8"
+                }
             }
         }
+
         testRuns["test"].executionTask.configure {
             useJUnit()
         }
     }
-    js(LEGACY) {
+
+    js {
         browser {
             commonWebpackConfig {
-                cssSupport.enabled = true
+                cssSupport {
+                    enabled.set(true)
+                }
             }
         }
-    }
-    val hostOs = System.getProperty("os.name")
-    val isMingwX64 = hostOs.startsWith("Windows")
-    @Suppress("UNUSED_VARIABLE")
-    val nativeTarget = when {
-        hostOs == "Mac OS X" -> macosX64("native")
-        hostOs == "Linux" -> linuxX64("native")
-        isMingwX64 -> mingwX64("native")
-        else -> throw GradleException("Host OS is not supported in Kotlin/Native.")
+
+        nodejs()
     }
 
-    @Suppress("UNUSED_VARIABLE")
+    if (HostManager.host == KonanTarget.MACOS_X64) macosX64("native")
+    if (HostManager.host == KonanTarget.MACOS_ARM64) macosArm64("native")
+    if (HostManager.hostIsLinux) linuxX64("native")
+    if (HostManager.hostIsMingw) mingwX64("native")
+
     sourceSets {
         val commonMain by getting
         val commonTest by getting {
@@ -117,21 +128,59 @@ kotlin {
         }
         val jvmMain by getting
         val jvmTest by getting
+        val jvmBenchmark by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-benchmark-runtime:0.4.9")
+            }
+        }
         val jsMain by getting
         val jsTest by getting
-        val nativeMain by getting
+        val nativeMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-benchmark-runtime:0.4.9")
+            }
+        }
         val nativeTest by getting
     }
 
     targets.all {
         compilations.all {
-            @Suppress("SuspiciousCollectionReassignment")
             kotlinOptions {
                 freeCompilerArgs += "-Xallow-kotlin-package"
             }
         }
     }
 }
+
+// region Benchmarking config
+
+allOpen {
+    annotation("org.openjdk.jmh.annotations.State")
+}
+
+benchmark {
+    configurations {
+        named("main") {
+            iterations = 5
+            iterationTime = 5
+            iterationTimeUnit = "sec"
+            advanced("jvmForks", "definedByJmh")
+            advanced("jsUseBridge", true)
+            advanced("nativeGCAfterIteration", true)
+        }
+    }
+
+    targets {
+        register("jvmBenchmark") {
+            this as JvmBenchmarkTarget
+            jmhVersion = "1.37"
+        }
+        register("js")
+        register("native")
+    }
+}
+
+// endregion
 
 val emptyJavadocJar by tasks.registering(Jar::class) {
     archiveClassifier.set("javadoc")
