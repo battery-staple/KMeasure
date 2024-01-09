@@ -11,6 +11,10 @@ value class Quantity<D : AnyDimension>(val siValue: QuantityNumber) : Comparable
         Quantity(siValue + other.siValue)
     inline operator fun minus(other: Quantity<D>): Quantity<D> =
         Quantity(siValue - other.siValue)
+
+    inline operator fun rem(other: Quantity<D>): Quantity<D> =
+        Quantity(siValue % other.siValue)
+
     inline operator fun unaryMinus(): Quantity<D> =
         Quantity(-siValue)
 
