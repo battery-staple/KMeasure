@@ -6,9 +6,9 @@ import kotlin.internal.InlineOnly
 import kotlin.math.PI
 
 // Angles
-val degrees by lazy { Angle(PI / 180.0) }
-val revolutions by lazy { Angle(2 * PI) }
-val rotations by lazy { revolutions }
+val degrees = Angle(PI / 180.0)
+val revolutions = Angle(2 * PI)
+val rotations = revolutions
 
 // Time
 internal const val SECONDS_PER_MINUTE = 60.0
@@ -16,28 +16,28 @@ internal const val SECONDS_PER_HOUR = SECONDS_PER_MINUTE * 60.0
 internal const val SECONDS_PER_DAY = SECONDS_PER_HOUR * 24.0
 internal const val SECONDS_PER_YEAR = SECONDS_PER_DAY * 365
 
-val minutes by lazy { Time(SECONDS_PER_MINUTE) }
-val hours by lazy { Time(SECONDS_PER_HOUR) }
-val days by lazy { Time(SECONDS_PER_DAY) }
-val weeks by lazy { Time(SECONDS_PER_DAY * 7) }
-val years by lazy { Time(SECONDS_PER_YEAR) }
-val decades by lazy { Time(SECONDS_PER_YEAR * 10) }
-val centuries by lazy { Time(SECONDS_PER_YEAR * 100) }
+val minutes = Time(SECONDS_PER_MINUTE)
+val hours = Time(SECONDS_PER_HOUR)
+val days = Time(SECONDS_PER_DAY)
+val weeks = Time(SECONDS_PER_DAY * 7)
+val years = Time(SECONDS_PER_YEAR)
+val decades = Time(SECONDS_PER_YEAR * 10)
+val centuries = Time(SECONDS_PER_YEAR * 100)
 
 // Mass
 val tonnes by lazy { Mass(1000.0)}
 
 // Area
-val hectares by lazy { Area(10_000.0) }
+val hectares = Area(10_000.0)
 
 // Volume
-val liters by lazy { Volume(0.001) }
+val liters = Volume(0.001)
 
 // Charge
-val elementaryCharges by lazy { Charge(1.602176634E-19) }
+val elementaryCharges = Charge(1.602176634E-19)
 
 // Energy
-val electronVolts by lazy { Energy(1.602176634E-19) }
+val electronVolts = Energy(1.602176634E-19)
 
 inline val Int.degrees: Angle @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.degrees)
 inline val Int.revolutions: Angle @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.revolutions)

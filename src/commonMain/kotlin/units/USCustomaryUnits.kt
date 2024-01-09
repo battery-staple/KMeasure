@@ -7,45 +7,45 @@ import kotlin.internal.InlineOnly
 // Mass
 internal const val KILOGRAMS_PER_POUND_MASS = 0.453_592_37
 
-val ounces by lazy { Mass(KILOGRAMS_PER_POUND_MASS / 16) }
-val pounds by lazy { Mass(KILOGRAMS_PER_POUND_MASS) }
-val tons by lazy { Mass(KILOGRAMS_PER_POUND_MASS * 2000) }
-val longTons by lazy { Mass(KILOGRAMS_PER_POUND_MASS * 2240) }
+val ounces = Mass(KILOGRAMS_PER_POUND_MASS / 16)
+val pounds = Mass(KILOGRAMS_PER_POUND_MASS)
+val tons = Mass(KILOGRAMS_PER_POUND_MASS * 2000)
+val longTons = Mass(KILOGRAMS_PER_POUND_MASS * 2240)
 
 // Length
 internal const val METERS_PER_INCH = 0.0254
 internal const val METERS_PER_FOOT = METERS_PER_INCH * 12
 internal const val METERS_PER_SURVEY_FOOT = 1200.0/3937.0
 
-val mils by lazy { Length(METERS_PER_INCH / 1_000) }
+val mils = Length(METERS_PER_INCH / 1_000)
 inline val thous get() = mils
-val inches by lazy { Length(METERS_PER_INCH) }
-val feet by lazy { Length(METERS_PER_FOOT) }
-val surveyFeet by lazy { Length(METERS_PER_SURVEY_FOOT) }
-val yards by lazy { Length(METERS_PER_FOOT * 3) }
-val miles by lazy { Length(METERS_PER_FOOT * 5280) }
+val inches = Length(METERS_PER_INCH)
+val feet = Length(METERS_PER_FOOT)
+val surveyFeet = Length(METERS_PER_SURVEY_FOOT)
+val yards = Length(METERS_PER_FOOT * 3)
+val miles = Length(METERS_PER_FOOT * 5280)
 
 // Area
-val acres by lazy { Area(43560 * METERS_PER_SURVEY_FOOT) }
+val acres = Area(43560 * METERS_PER_SURVEY_FOOT)
 
 // Volume
 internal const val CUBIC_METERS_PER_US_FLUID_OUNCE = 29.573_529_562_5
 
-val teaspoons by lazy { Volume(CUBIC_METERS_PER_US_FLUID_OUNCE / 6) }
-val tablespoons by lazy { Volume(CUBIC_METERS_PER_US_FLUID_OUNCE / 2) }
-val fluidOunces by lazy { Volume(CUBIC_METERS_PER_US_FLUID_OUNCE) }
-val cups by lazy { Volume(CUBIC_METERS_PER_US_FLUID_OUNCE * 8) }
-val pints by lazy { Volume(CUBIC_METERS_PER_US_FLUID_OUNCE * 16) }
-val quarts by lazy { Volume(CUBIC_METERS_PER_US_FLUID_OUNCE * 32) }
-val gallons by lazy { Volume(CUBIC_METERS_PER_US_FLUID_OUNCE * 128) }
+val teaspoons = Volume(CUBIC_METERS_PER_US_FLUID_OUNCE / 6)
+val tablespoons = Volume(CUBIC_METERS_PER_US_FLUID_OUNCE / 2)
+val fluidOunces = Volume(CUBIC_METERS_PER_US_FLUID_OUNCE)
+val cups = Volume(CUBIC_METERS_PER_US_FLUID_OUNCE * 8)
+val pints = Volume(CUBIC_METERS_PER_US_FLUID_OUNCE * 16)
+val quarts = Volume(CUBIC_METERS_PER_US_FLUID_OUNCE * 32)
+val gallons = Volume(CUBIC_METERS_PER_US_FLUID_OUNCE * 128)
 
 // Force
 internal const val NEWTONS_PER_POUND_FORCE = 4.4482216152605
 
-val poundForce by lazy { Force(NEWTONS_PER_POUND_FORCE) }
+val poundForce = Force(NEWTONS_PER_POUND_FORCE)
 
 // Power
-val horsepower by lazy { Power(33_000.0 * METERS_PER_FOOT * NEWTONS_PER_POUND_FORCE / SECONDS_PER_MINUTE) }
+val horsepower = Power(33_000.0 * METERS_PER_FOOT * NEWTONS_PER_POUND_FORCE / SECONDS_PER_MINUTE)
 
 
 inline val Int.ounces: Mass @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.ounces)

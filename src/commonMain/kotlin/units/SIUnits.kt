@@ -4,44 +4,44 @@ package com.batterystaple.kmeasure.units
 import com.batterystaple.kmeasure.quantities.*
 import kotlin.internal.InlineOnly
 
-val radians: Angle by lazy { Angle(1.0) }
+val radians: Angle = Angle(1.0)
 
-val grams: Mass by lazy { Mass(0.001) } // The SI unit for mass is actually the kilogram, but we want prefixes
+val grams: Mass = Mass(0.001) // The SI unit for mass is actually the kilogram, but we want prefixes
                                                //  to work properly (e.g. 1.milli.kilograms would be undesirable)
 
-val meters: Length by lazy { Length(1.0) }
+val meters: Length = Length(1.0)
 
-val seconds: Time by lazy { Time(1.0) }
+val seconds: Time = Time(1.0)
 
-val amperes: Current by lazy { Current(1.0) }
+val amperes: Current = Current(1.0)
 inline val amps: Current @InlineOnly get() = amperes
 
-val hertz: Frequency by lazy { Frequency(1.0) }
+val hertz: Frequency = Frequency(1.0)
 
-val newtons: Force by lazy { Force(1.0) }
+val newtons: Force = Force(1.0)
 
-val pascals: Pressure by lazy { Pressure(1.0) }
+val pascals: Pressure = Pressure(1.0)
 
-val joules: Energy by lazy { Energy(1.0) }
+val joules: Energy = Energy(1.0)
 
-val watts: Power by lazy { Power(1.0) }
+val watts: Power = Power(1.0)
 
-val coulombs: Charge by lazy { Charge(1.0) }
+val coulombs: Charge = Charge(1.0)
 
-val volts: ElectricalPotential by lazy { ElectricalPotential(1.0) }
+val volts: ElectricalPotential = ElectricalPotential(1.0)
 
-val farads: Capacitance by lazy { Capacitance(1.0) }
+val farads: Capacitance = Capacitance(1.0)
 
-val ohms: Resistance by lazy { Resistance(1.0) }
+val ohms: Resistance = Resistance(1.0)
 
-val siemens: Conductance by lazy { Conductance(1.0) }
+val siemens: Conductance = Conductance(1.0)
 inline val mhos: Conductance @InlineOnly get() = siemens
 
-val webers: MagneticFlux by lazy { MagneticFlux(1.0) }
+val webers: MagneticFlux = MagneticFlux(1.0)
 
-val teslas: MagneticFluxDensity by lazy { MagneticFluxDensity(1.0) }
+val teslas: MagneticFluxDensity = MagneticFluxDensity(1.0)
 
-val henries: Inductance by lazy { Inductance(1.0) }
+val henries: Inductance = Inductance(1.0)
 
 
 inline val Int.radians: Angle @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.radians)
