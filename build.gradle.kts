@@ -4,11 +4,11 @@ import org.jetbrains.kotlin.konan.target.HostManager
 import org.jetbrains.kotlin.konan.target.KonanTarget
 
 plugins {
-    kotlin("multiplatform") version "1.9.10"
+    kotlin("multiplatform") version "1.9.22"
     `maven-publish`
     signing
     id("org.jetbrains.kotlinx.benchmark") version "0.4.9"
-    id("org.jetbrains.kotlin.plugin.allopen") version "1.9.10"
+    id("org.jetbrains.kotlin.plugin.allopen") version "1.9.22"
 }
 
 group = "io.github.battery-staple"
