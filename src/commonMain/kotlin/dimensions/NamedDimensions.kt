@@ -28,7 +28,7 @@ typealias InverseTimeSquaredDimension = Dimension<Mass0, Length0, TimeN2, Curren
 typealias MassFlowRateDimension = Dimension<Mass1, Length0, TimeN1, Current0>
 typealias SpecificEnergyDimension = Dimension<Mass0, LengthN2, TimeN2, Current0>
 typealias MassPerSquareTimeDimension = Dimension<Mass1, Length0, TimeN2, Current0>
-typealias MassAreaDimension = Dimension<Mass1, Length2, Time0, Current0>
+typealias MomentOfInertiaDimension = Dimension<Mass1, Length2, Time0, Current0>
 typealias SurfaceDensityDimension = Dimension<Mass1, LengthN2, Time0, Current0>
 typealias IrradianceDimension = Dimension<Mass1, Length0, TimeN3, Current0>
 
@@ -76,6 +76,7 @@ typealias RadiantFluxDimension = PowerDimension
 typealias StressDimension = PressureDimension
 typealias EnergyDensityDimension = PressureDimension
 typealias MomentOfForceDimension = EnergyDimension
+typealias TorqueDimension = EnergyDimension
 typealias SurfaceTensionDimension = MassPerSquareTimeDimension
 typealias MassConcentrationDimension = DensityDimension
 typealias WavenumberDimension = InverseLengthDimension

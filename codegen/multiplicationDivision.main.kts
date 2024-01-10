@@ -1,4 +1,3 @@
-import kotlin.time.ExperimentalTime
 import kotlin.time.measureTime
 
 // region: shared
@@ -46,6 +45,7 @@ val commonDimensions = listOf(
     Dimension(1, 1, -2, 0), // Force
     Dimension(1, -1, -2, 0), // Pressure
     Dimension(1, 2, -2, 0), // Energy
+    Dimension(1, 2, 0, 0), // MomentOfInertia
     Dimension(1, 2, -3, 0), // Power
     Dimension(0, 0, 0, 1), // Current
     Dimension(0, 0, 1, 1), // Charge
@@ -67,7 +67,7 @@ val commonDimensions = listOf(
 )
 
 val dimensionsToNames by lazy {
-    mapOf(*arrayOf(
+    val dimensionsToNamesUnfiltered = arrayOf(
         Dimension(0, 0, 0, 0) to "Scalar",
         Dimension(0, 0, 1, 0) to "Time",
         Dimension(0, 0, -1, 0) to "Frequency",
@@ -104,7 +104,7 @@ val dimensionsToNames by lazy {
         Dimension(1, 0, -1, 0) to "MassFlowRate",
         Dimension(0, 2, -2, 0) to "SpecificEnergy",
         Dimension(1, 0, -2, 0) to "MassPerSquareTime",
-        Dimension(1, 2, 0, 0) to "MassArea",
+        Dimension(1, 2, 0, 0) to "MomentOfInertia",
         Dimension(1, -2, 0, 0) to "SurfaceDensity",
         Dimension(0, -2, 0, 1) to "CurrentDensity",
         Dimension(0, -1, 0, 1) to "MagneticFieldStrength",
@@ -126,36 +126,38 @@ val dimensionsToNames by lazy {
         Dimension(-1, -2, 2, 0) to "InverseEnergy",
         Dimension(0, -2, 1, 0) to "TimePerArea",
         Dimension(-1, 0, 1, 0) to "InverseMassFlowRate",
-    ).also { dimensionsToNamesUnfiltered ->
+    )
+
+    // Ensure no accidental duplicates!
+    run checkDuplicates@ {
         val uniqueKeys = dimensionsToNamesUnfiltered.map { it.first }.toSet()
-        if (uniqueKeys.size == dimensionsToNamesUnfiltered.size) return@also
+        if (uniqueKeys.size == dimensionsToNamesUnfiltered.size) return@checkDuplicates
 
         for (key in uniqueKeys) {
             val duplicates = dimensionsToNamesUnfiltered.filter { it.first == key }
             if (duplicates.size != 1) error("Dimension $key with duplicate names ${duplicates.map { it.second }}")
         }
-    })
+    }
+
+    return@lazy mapOf(*dimensionsToNamesUnfiltered)
 }
 
-//println(dimensionsToNames.keys.map { dimensionsToNames[it] to dimensionsToNames[it]!!.length })
-
-//dimensionsToNames.keys.forEach { if (dimensionsToNames[it]!!.length != 1) error("Dimension $it with duplicate names ${dimensionsToNames[it]}") }
-
 // endregion
+
 // region: multiplicationDivision
 sealed class Operation {
     abstract val name: String
     abstract val symbol: String
     abstract fun returnDimension(receiver: Dimension, parameter: Dimension): Dimension
 
-    object Product : Operation() {
+    data object Product : Operation() {
         override val name: String = "times"
         override val symbol: String = "*"
 
         override fun returnDimension(receiver: Dimension, parameter: Dimension): Dimension =
             receiver * parameter
     }
-    object Division : Operation() {
+    data object Division : Operation() {
         override val name: String = "div"
         override val symbol: String = "/"
 
@@ -180,10 +182,11 @@ class FunctionDeclaration(
                 body
 }
 
-fun multiplicationDivision() {
-    var i = 0
+fun generateMultiplicationDivision() {
+    println("Generating multiplication/division declarations:\n")
 
-    @OptIn(ExperimentalTime::class)
+    var numGenerated = 0
+
     val runTime = measureTime {
         listOf(Operation.Product, Operation.Division).forEach { operation ->
             commonDimensions.forEach { receiver ->
@@ -203,14 +206,15 @@ fun multiplicationDivision() {
                             body = " = Quantity(siValue ${operation.symbol} other.siValue)"
                         )
                     )
-                    i++
+
+                    numGenerated++
                 }
             }
         }
     }
 
     println("\n")
-    println("Generated ${i} function declarations from ${commonDimensions.size} dimensions in ${runTime}.")
+    println("Generated $numGenerated function declarations from ${commonDimensions.size} dimensions in ${runTime}.")
 }
 // endregion
-multiplicationDivision()
+generateMultiplicationDivision()

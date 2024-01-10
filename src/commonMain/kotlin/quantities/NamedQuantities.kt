@@ -30,7 +30,7 @@ typealias InverseTimeSquared = Quantity<InverseTimeSquaredDimension>
 typealias MassFlowRate = Quantity<MassFlowRateDimension>
 typealias SpecificEnergy = Quantity<SpecificEnergyDimension>
 typealias MassPerSquareTime = Quantity<MassPerSquareTimeDimension>
-typealias MassArea = Quantity<MassAreaDimension>
+typealias MomentOfInertia = Quantity<MomentOfInertiaDimension>
 typealias SurfaceDensity = Quantity<SurfaceDensityDimension>
 typealias Irradiance = Quantity<IrradianceDimension>
 
@@ -78,6 +78,7 @@ typealias RadiantFlux = Power
 typealias Stress = Pressure
 typealias EnergyDensity = Pressure
 typealias MomentOfForce = Energy
+typealias Torque = MomentOfForce
 typealias SurfaceTension = MassPerSquareTime
 typealias MassConcentration = Density
 typealias Wavenumber = InverseLength
