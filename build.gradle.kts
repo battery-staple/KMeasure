@@ -188,3 +188,12 @@ val emptyJavadocJar by tasks.registering(Jar::class) {
 
 val isReleaseBuild: Boolean
     get() = !(version as String).endsWith("SNAPSHOT")
+
+//region Fix Gradle warning about signing tasks using publishing task outputs without explicit dependencies
+// https://github.com/gradle/gradle/issues/26091
+// by aSemy on GitHub
+tasks.withType<AbstractPublishToMaven>().configureEach {
+    val signingTasks = tasks.withType<Sign>()
+    mustRunAfter(signingTasks)
+}
+//endregion
