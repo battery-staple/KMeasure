@@ -44,7 +44,7 @@ repositories {
 Then add KMeasure to your dependencies:
 ```kotlin
 dependencies {
-    implementation("io.github.battery-staple:KMeasure:1.4.0")
+    implementation("io.github.battery-staple:KMeasure:1.4.1-k2")
 }
 ```
 
