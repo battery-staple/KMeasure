@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "io.github.battery-staple"
-version = "1.4.0-k2"
+version = "1.4.1-k2"
 
 repositories {
     mavenCentral()
@@ -138,12 +138,6 @@ kotlin {
             }
         }
         val nativeTest by getting
-//
-//        all {
-//            languageSettings {
-//                languageVersion = "2.0"
-//            }
-//        }
     }
 
     targets.all {

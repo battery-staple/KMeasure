@@ -33,6 +33,9 @@ val hectares = Area(10_000.0)
 // Volume
 val liters = Volume(0.001)
 
+// Acceleration
+val standardGravities = Acceleration(9.80665)
+
 // Charge
 val elementaryCharges = Charge(1.602176634E-19)
 
@@ -57,6 +60,8 @@ inline val Int.hectares: Area @InlineOnly inline get() = ofUnit(com.batterystapl
 
 inline val Int.liters: Volume @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.liters)
 
+inline val Int.standardGravities: Acceleration @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.standardGravities)
+
 inline val Int.electronVolts: Energy @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.electronVolts)
 
 inline val Int.elementaryCharges: Charge @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.elementaryCharges)
@@ -80,6 +85,8 @@ inline val Long.hectares: Area @InlineOnly inline get() = ofUnit(com.batterystap
 
 inline val Long.liters: Volume @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.liters)
 
+inline val Long.standardGravities: Acceleration @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.standardGravities)
+
 inline val Long.electronVolts: Energy @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.electronVolts)
 
 inline val Long.elementaryCharges: Charge @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.elementaryCharges)
@@ -102,6 +109,8 @@ inline val Double.tonnes: Mass @InlineOnly inline get() = ofUnit(com.batterystap
 inline val Double.hectares: Area @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.hectares)
 
 inline val Double.liters: Volume @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.liters)
+
+inline val Double.standardGravities: Acceleration @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.standardGravities)
 
 inline val Double.electronVolts: Energy @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.electronVolts)
 
