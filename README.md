@@ -80,8 +80,8 @@ force, for example, is $M \times L \times T^{-2}$.
 
 (See [here](https://en.wikipedia.org/wiki/Dimensional_analysis) for a more complete explanation of dimensions.)
 
-The vast majority of useful units can be represented with only the first three,
-so KMeasure only supports combinations of mass, length, and time for now.
+The vast majority of useful units can be represented with only the first four,
+so KMeasure only supports combinations of mass, length, time, and current for now.
 
 ### `Dimension` Declarations
 Thus, `Dimension` takes three type parameters:
@@ -152,7 +152,7 @@ one for multiplication and one for division, the number of multiplication/divisi
 $2(d-1)^2$ where $d$ is the number of dimensions. Since the number of dimensions is equal to
 $m \times l \times t$, where $m$, $l$, and $t$ are the number of mass, length, and time dimensions, respectively,
 the required number of multiplication/division functions is $2(mlt-1)^2$ (or, more clearly,
-$ O((mlt)^2) $). As is evident by the quadratic dependence on number of dimensions, adding more dimensions therefore significantly increases
+$ O((mlt)^2)$ ). As is evident by the quadratic dependence on number of dimensions, adding more dimensions therefore significantly increases
 the number of functions needing to be defined, slowing down things like intellisense and compilation.
 
 Thus, only certain dimensions are supported. Those that are supported were chosen to include all commonly-used
