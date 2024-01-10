@@ -1,7 +1,7 @@
 @file:Suppress("unused")
 package com.batterystaple.kmeasure.quantities
 
-import com.batterystaple.kmeasure.dimensions.AnyDimension
+import com.batterystaple.kmeasure.dimensions.Dimension
 import com.batterystaple.kmeasure.interop.transformWithSIValue
 import com.batterystaple.kmeasure.units.radians
 import kotlin.math.*
@@ -12,14 +12,14 @@ import kotlin.math.*
  *
  * @see [kotlin.math.max]
  */
-fun <D : AnyDimension> max(a: Quantity<D>, b: Quantity<D>): Quantity<D> = Quantity(max(a.siValue, b.siValue))
+fun <D : Dimension<*, *, *, *>> max(a: Quantity<D>, b: Quantity<D>): Quantity<D> = Quantity(max(a.siValue, b.siValue))
 
 /**
  * A version of [kotlin.math.min] that preserves units.
  *
  * @see [kotlin.math.min]
  */
-fun <D : AnyDimension> min(a: Quantity<D>, b: Quantity<D>): Quantity<D> = Quantity(min(a.siValue, b.siValue))
+fun <D : Dimension<*, *, *, *>> min(a: Quantity<D>, b: Quantity<D>): Quantity<D> = Quantity(min(a.siValue, b.siValue))
 // endregion
 
 // region sign
@@ -28,35 +28,35 @@ fun <D : AnyDimension> min(a: Quantity<D>, b: Quantity<D>): Quantity<D> = Quanti
  *
  * @see [kotlin.math.abs]
  */
-fun <D : AnyDimension> abs(x: Quantity<D>): Quantity<D> = x.transformWithSIValue(::abs)
+fun <D : Dimension<*, *, *, *>> abs(x: Quantity<D>): Quantity<D> = x.transformWithSIValue(::abs)
 
 /**
  * A version of [kotlin.math.sign] for [Quantity]s.
  *
  * @see [kotlin.math.sign]
  */
-fun <D : AnyDimension> sign(x: Quantity<D>): Double = sign(x.siValue)
+fun <D : Dimension<*, *, *, *>> sign(x: Quantity<D>): Double = sign(x.siValue)
 
 /**
  * A version of [kotlin.math.withSign] for [Quantity]s.
  *
  * @see [kotlin.math.withSign]
  */
-fun <D : AnyDimension> Quantity<D>.withSign(sign: Int): Quantity<D> = Quantity(siValue.withSign(sign))
+fun <D : Dimension<*, *, *, *>> Quantity<D>.withSign(sign: Int): Quantity<D> = Quantity(siValue.withSign(sign))
 
 /**
  * A version of [kotlin.math.withSign] for [Quantity]s.
  *
  * @see [kotlin.math.withSign]
  */
-fun <D : AnyDimension> Quantity<D>.withSign(sign: Double): Quantity<D> = Quantity(siValue.withSign(sign))
+fun <D : Dimension<*, *, *, *>> Quantity<D>.withSign(sign: Double): Quantity<D> = Quantity(siValue.withSign(sign))
 
 /**
  * A version of [kotlin.math.withSign] for [Quantity]s.
  *
  * @see [kotlin.math.withSign]
  */
-fun <D : AnyDimension> Quantity<D>.withSign(sign: Quantity<*>): Quantity<D> = Quantity(siValue.withSign(sign.siValue))
+fun <D : Dimension<*, *, *, *>> Quantity<D>.withSign(sign: Quantity<*>): Quantity<D> = Quantity(siValue.withSign(sign.siValue))
 // endregion
 
 // region trig
@@ -121,7 +121,7 @@ fun atan2(y: Length, x: Length): Angle = kotlin.math.atan2(y = y.siValue, x = x.
  *
  * @see [kotlin.math.hypot]
  */
-fun <D : AnyDimension> hypot(x: Quantity<D>, y: Quantity<D>): Quantity<D> = Quantity(hypot(x.siValue, y.siValue))
+fun <D : Dimension<*, *, *, *>> hypot(x: Quantity<D>, y: Quantity<D>): Quantity<D> = Quantity(hypot(x.siValue, y.siValue))
 // endregion
 
 // region floating point
@@ -130,21 +130,21 @@ fun <D : AnyDimension> hypot(x: Quantity<D>, y: Quantity<D>): Quantity<D> = Quan
  *
  * @see [kotlin.math.nextUp]
  */
-fun <D : AnyDimension> Quantity<D>.nextUp(): Quantity<D> = transformWithSIValue(QuantityNumber::nextUp)
+fun <D : Dimension<*, *, *, *>> Quantity<D>.nextUp(): Quantity<D> = transformWithSIValue(QuantityNumber::nextUp)
 
 /**
  * A version of [kotlin.math.nextDown] for [Quantity]s.
  *
  * @see [kotlin.math.nextDown]
  */
-fun <D : AnyDimension> Quantity<D>.nextDown(): Quantity<D> = transformWithSIValue(QuantityNumber::nextDown)
+fun <D : Dimension<*, *, *, *>> Quantity<D>.nextDown(): Quantity<D> = transformWithSIValue(QuantityNumber::nextDown)
 
 /**
  * A version of [kotlin.math.nextTowards] for [Quantity]s.
  *
  * @see [kotlin.math.nextTowards]
  */
-fun <D : AnyDimension> Quantity<D>.nextTowards(to: Quantity<D>): Quantity<D> = Quantity(siValue.nextTowards(to.siValue))
+fun <D : Dimension<*, *, *, *>> Quantity<D>.nextTowards(to: Quantity<D>): Quantity<D> = Quantity(siValue.nextTowards(to.siValue))
 // endregion
 
 // region extension properties
@@ -153,19 +153,19 @@ fun <D : AnyDimension> Quantity<D>.nextTowards(to: Quantity<D>): Quantity<D> = Q
  *
  * @see [kotlin.math.withSign]
  */
-inline val <D : AnyDimension> Quantity<D>.absoluteValue: Quantity<D> get() = abs(this)
+inline val <D : Dimension<*, *, *, *>> Quantity<D>.absoluteValue: Quantity<D> get() = abs(this)
 
 /**
  * A version of [kotlin.math.sign] for [Quantity]s.
  *
  * @see [kotlin.math.sign]
  */
-inline val <D : AnyDimension> Quantity<D>.sign: Double get() = sign(this)
+inline val <D : Dimension<*, *, *, *>> Quantity<D>.sign: Double get() = sign(this)
 
 /**
  * A version of [kotlin.math.ulp] for [Quantity]s.
  *
  * @see [kotlin.math.ulp]
  */
-inline val <D : AnyDimension> Quantity<D>.ulp: Quantity<D> get() = transformWithSIValue(Double::ulp)
+inline val <D : Dimension<*, *, *, *>> Quantity<D>.ulp: Quantity<D> get() = transformWithSIValue(Double::ulp)
 // endregion

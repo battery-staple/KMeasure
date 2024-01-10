@@ -1,18 +1,15 @@
 
-import kotlinx.benchmark.gradle.JvmBenchmarkTarget
 import org.jetbrains.kotlin.konan.target.HostManager
 import org.jetbrains.kotlin.konan.target.KonanTarget
 
 plugins {
-    kotlin("multiplatform") version "1.9.10"
+    kotlin("multiplatform") version "2.0.0-Beta2"
     `maven-publish`
     signing
-    id("org.jetbrains.kotlinx.benchmark") version "0.4.9"
-    id("org.jetbrains.kotlin.plugin.allopen") version "1.9.10"
 }
 
 group = "io.github.battery-staple"
-version = "1.4.0"
+version = "1.4.0-k2"
 
 repositories {
     mavenCentral()
@@ -141,6 +138,12 @@ kotlin {
             }
         }
         val nativeTest by getting
+//
+//        all {
+//            languageSettings {
+//                languageVersion = "2.0"
+//            }
+//        }
     }
 
     targets.all {
@@ -152,39 +155,18 @@ kotlin {
     }
 }
 
-// region Benchmarking config
-
-allOpen {
-    annotation("org.openjdk.jmh.annotations.State")
-}
-
-benchmark {
-    configurations {
-        named("main") {
-            iterations = 5
-            iterationTime = 5
-            iterationTimeUnit = "sec"
-            advanced("jvmForks", "definedByJmh")
-            advanced("jsUseBridge", true)
-            advanced("nativeGCAfterIteration", true)
-        }
-    }
-
-    targets {
-        register("jvmBenchmark") {
-            this as JvmBenchmarkTarget
-            jmhVersion = "1.37"
-        }
-        register("js")
-        register("native")
-    }
-}
-
-// endregion
-
 val emptyJavadocJar by tasks.registering(Jar::class) {
     archiveClassifier.set("javadoc")
 }
 
 val isReleaseBuild: Boolean
     get() = !(version as String).endsWith("SNAPSHOT")
+
+//region Fix Gradle warning about signing tasks using publishing task outputs without explicit dependencies
+// https://github.com/gradle/gradle/issues/26091
+// by aSemy on GitHub
+tasks.withType<AbstractPublishToMaven>().configureEach {
+    val signingTasks = tasks.withType<Sign>()
+    mustRunAfter(signingTasks)
+}
+//endregion

@@ -3,6 +3,7 @@ out
 *.iml
 *.ipr
 kotlin-js-store
+.kotlin
 
 ## From https://github.com/github/gitignore/blob/main/Gradle.gitignore
 .gradle

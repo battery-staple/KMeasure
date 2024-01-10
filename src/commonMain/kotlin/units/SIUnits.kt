@@ -34,14 +34,14 @@ val farads: Capacitance = Capacitance(1.0)
 
 val ohms: Resistance = Resistance(1.0)
 
-val siemens: Conductance = Conductance(1.0)
+val siemens: Conductance by lazy { Conductance(1.0) }
 inline val mhos: Conductance @InlineOnly get() = siemens
 
-val webers: MagneticFlux = MagneticFlux(1.0)
+val webers: MagneticFlux by lazy { MagneticFlux(1.0) }
 
-val teslas: MagneticFluxDensity = MagneticFluxDensity(1.0)
+val teslas: MagneticFluxDensity by lazy { MagneticFluxDensity(1.0) }
 
-val henries: Inductance = Inductance(1.0)
+val henries: Inductance by lazy { Inductance(1.0) }
 
 
 inline val Int.radians: Angle @InlineOnly inline get() = ofUnit(com.batterystaple.kmeasure.units.radians)

@@ -1,12 +1,12 @@
 package com.batterystaple.kmeasure.quantities
 
-import com.batterystaple.kmeasure.dimensions.AnyDimension
+import com.batterystaple.kmeasure.dimensions.Dimension
 import kotlin.jvm.JvmInline
 
 typealias QuantityNumber = Double
 
 @JvmInline
-value class Quantity<D : AnyDimension>(val siValue: QuantityNumber) : Comparable<Quantity<D>> {
+value class Quantity<D : Dimension<*, *, *, *>>(val siValue: QuantityNumber) : Comparable<Quantity<D>> {
     inline operator fun plus(other: Quantity<D>): Quantity<D> =
         Quantity(siValue + other.siValue)
     inline operator fun minus(other: Quantity<D>): Quantity<D> =
